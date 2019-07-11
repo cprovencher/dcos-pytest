@@ -1,2 +1,2 @@
-# remote-pytest
-Wrapper around pytest to run python tests on a remote host
+# dcos-pytest
+Wraps pytest to move and execute DC/OS integration tests on a remote master
