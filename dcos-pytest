@@ -109,7 +109,7 @@ if __name__ == '__main__':
     leader_ip = get_leader_ip(env_vars['MASTER_PUBLIC_IPS'])
 
     subprocess.run('scp -i {} test_* get_test_group.py conftest.py {}@{}:/tmp'.format(
-        env_vars['SSH_KEY_PATH'], env_vars['SSH_USER'], leader_ip), shell=True)
+        env_vars['SSH_KEY_PATH'], env_vars['SSH_USER'], leader_ip), shell=True, stdout=subprocess.PIPE)
 
     export_cmds = ''
     for k, v in env_vars.items():
