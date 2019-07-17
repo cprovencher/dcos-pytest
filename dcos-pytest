@@ -102,8 +102,9 @@ if __name__ == '__main__':
                   "dcos-enterprise/packages/dcos-integration-test/extra directories!")
         sys.exit(1)
 
-    if '--help' in sys.argv or '-h' in sys.argv:
+    if '--help' in sys.argv or '-h' in sys.argv or len(sys.argv) == 1:
         print(HELP_MESSAGE)
+        sys.exit(0)
 
     env_vars = load_env_vars()
     leader_ip = get_leader_ip(env_vars['MASTER_PUBLIC_IPS'])
