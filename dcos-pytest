@@ -7,45 +7,45 @@ import subprocess
 
 
 HELP_MESSAGE = """
-ENVIRONMENT VARIABLES TO SET:
+ENVIRONMENT VARIABLES TO SET
   
-  Required variables:
+  Required variables
     
-    \33[32mPUBLIC_SLAVE_HOSTS\33[0m
-      comma-separated list of public agents' private IPs
+    {begin_color}PUBLIC_SLAVE_HOSTS{end_color}
+    comma-separated list of public agents' private IPs
     
-    \33[32mSLAVE_HOSTS\33[0m
-      comma-separated list of private agents' private IPs
+    {begin_color}SLAVE_HOSTS{end_color}
+    comma-separated list of private agents' private IPs
     
-    \33[32mMASTER_HOSTS\33[0m
-      comma-separated list of masters' private IPs
+    {begin_color}MASTER_HOSTS{end_color}
+    comma-separated list of masters' private IPs
     
-    \33[32mSSH_KEY_PATH\33[0m
-      full path to the private key for your cluster
+    {begin_color}SSH_KEY_PATH{end_color}
+    full path to the private key for your cluster
     
-    \33[32mSSH_USER\33[0m
-      ssh user for your Cluster
+    {begin_color}SSH_USER{end_color}
+    ssh user for your Cluster
   
-    \33[32mMASTER_PUBLIC_IPS\33[0m
-      comma-separated list of masters' public IPs
+    {begin_color}MASTER_PUBLIC_IPS{end_color}
+    comma-separated list of masters' public IPs
   
   
   EE-only variables
     
-    \33[32mDCOS_LOGIN_UNAME\33[0m
-      dcos username for logging into your cluster
+    {begin_color}DCOS_LOGIN_UNAME{end_color}
+    dcos username for logging into your cluster
       
-    \33[32mDCOS_LOGIN_PW\33[0m
-      dcos password for logging into your cluster
+    {begin_color}DCOS_LOGIN_PW{end_color}
+    dcos password for logging into your cluster
   
   
   Open-only variables
     
-    \33[32mDCOS_ACS_TOKEN\33[0m
-      Obtain this token by logging into your cluster from your web browser.
-      If you run integration tests before setting this variable, you will 
-      no longer be able to log into your cluster.
-"""
+    {begin_color}DCOS_ACS_TOKEN{end_color}
+    Obtain this token by logging into your cluster from your web browser.
+    If you run integration tests before setting this variable, you will
+    no longer be able to log into your cluster.
+""".format(begin_color='\u001b[38;5;42m', end_color='\u001b[0m')
 
 
 def print_red(text):
