@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os
 import requests
 import sys
@@ -92,11 +94,12 @@ def get_leader_ip(masters):
     raise Exception('leader not found')
 
 
-def main():
+if __name__ == '__main__':
     test_dir = 'packages/dcos-integration-test/extra'
     cwd = os.getcwd()
     if len(cwd) < len(test_dir) or cwd[len(cwd) - len(test_dir):] != test_dir:
-        print_red("ERROR: you must run dcos-pytest in the dcos/packages/dcos-integration-test/extra or dcos-enterprise/packages/dcos-integration-test/extra directories!")
+        print_red("ERROR: you must run dcos-pytest in the dcos/packages/dcos-integration-test/extra or "
+                  "dcos-enterprise/packages/dcos-integration-test/extra directories!")
         sys.exit(1)
 
     if '--help' in sys.argv or '-h' in sys.argv:

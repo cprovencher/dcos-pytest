@@ -6,9 +6,5 @@ setup(
     install_requires=[
         'requests'
     ],
-    entry_points={
-        'console_scripts': [
-            'dcos-pytest = main:main'
-        ],
-    }
+    scripts=['dcos-pytest']
 )
