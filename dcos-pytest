@@ -109,7 +109,7 @@ if __name__ == '__main__':
     env_vars = load_env_vars()
     leader_ip = get_leader_ip(env_vars['MASTER_PUBLIC_IPS'])
 
-    subprocess.run('scp -i {} -o StrictHostKeyChecking=no test_* get_test_group.py conftest.py {}@{}:/tmp'.format(
+    subprocess.run('scp -i {} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null test_* get_test_group.py conftest.py {}@{}:/tmp'.format(
         env_vars['SSH_KEY_PATH'], env_vars['SSH_USER'], leader_ip), shell=True, stdout=subprocess.PIPE)
 
     export_cmds = ''
@@ -117,5 +117,5 @@ if __name__ == '__main__':
         export_cmds += 'export {}={} && '.format(k, v)
 
     pytest_cmd = 'dcos-shell pytest ' + ' '.join(sys.argv[1:])
-    subprocess.run("ssh -t -i {} -o StrictHostKeyChecking=no {}@{} '{}cd /tmp && {}'".format(
+    subprocess.run("ssh -t -i {} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null {}@{} '{}cd /tmp && {}'".format(
         env_vars['SSH_KEY_PATH'], env_vars['SSH_USER'], leader_ip, export_cmds, pytest_cmd), shell=True)
