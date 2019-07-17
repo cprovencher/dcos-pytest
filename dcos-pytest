@@ -12,13 +12,13 @@ ENVIRONMENT VARIABLES TO SET
   Required variables
     
     {begin_color}PUBLIC_SLAVE_HOSTS{end_color}
-    comma-separated list of public agents' private IPs
+    comma-separated list of public agent private IPs
     
     {begin_color}SLAVE_HOSTS{end_color}
-    comma-separated list of private agents' private IPs
+    comma-separated list of private agent private IPs
     
     {begin_color}MASTER_HOSTS{end_color}
-    comma-separated list of masters' private IPs
+    comma-separated list of master private IPs
     
     {begin_color}SSH_KEY_PATH{end_color}
     full path to the private key for your cluster
